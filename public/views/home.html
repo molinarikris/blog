@@ -1,0 +1,15 @@
+<md-content class='content-container md-padding' flex>
+  <md-toolbar>
+    <h2 class='md-toolbar-tools'>
+      <span>Featured Posts</span>
+    </h2>
+  </md-toolbar>
+  <md-tabs md-dynamic-height md-border-bottom>
+    <md-tab ng-repeat='art in featuring' label="{{art.title}}">
+      <md-content class="md-padding">
+        <h1 class="md-display-2" ng-bind="art.title"></h1>
+        <p ng-bind="art.description"></p>
+      </md-content>
+    </md-tab>
+  </md-tabs>
+</md-content>

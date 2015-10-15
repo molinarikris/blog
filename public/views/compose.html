@@ -1,0 +1,36 @@
+<md-content class='content-container' flex>
+  <md-toolbar class='title'>
+    <h1 class='md-toolbar-tools'>New Post</h1>
+  </md-toolbar>
+  <form name='newPost'>
+    <div layout='column' class='content-container'>
+      <md-content class='md-background md-hue-1' layout-padding layout-wrap layout='row' layout-sm='column'>
+        <md-input-container flex='33'>
+          <label>Title</label>
+          <input ng-required='true' ng-model='post.title'>
+        </md-input-container>
+        <md-input-container flex=66>
+          <label>Description</label>
+          <input ng-required='true' ng-model='post.description' md-maxlength='160' md-minlength="50">
+        </md-input-container>
+      </md-content>
+      <md-divider></md-divider>
+      <md-content id='compose' layout-padding>
+        <md-input-container flex>
+          <label>Post</label>
+          <textarea ng-required='true' ng-model='post.text' columns='1'></textarea>
+        </md-input-container>
+        <md-checkbox md-no-ink class='md-primary' ng-model="post.featured">
+          Feature this article?
+          <small ng-bind="feated()" ng-class='featedClass'></small>
+        </md-checkbox>
+      </md-content>
+      <md-toolbar layout-padding id='submit' layout='row'>
+        <md-button  ng-click='fileItAway(post)' aria-label="Post">
+          <md-icon  md-font-icon='material-icons'>backup</md-icon>
+        </md-button>
+        <span flex ng-bind='res'>
+      </md-toolbar>
+    </div>
+  </form>
+</md-content>

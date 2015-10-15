@@ -1,0 +1,51 @@
+<!Doctype html>
+<html ng-app="Blog">
+<head>
+  <title>Blog</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <link rel='stylesheet' href='/lib/angular-material/angular-material.css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel='stylesheet' href='/css/style.css'>
+  <script src='/lib/angular/angular.js'></script>
+  <script src='/lib/angular-animate/angular-animate.min.js'></script>
+  <script src='/lib/angular-aria/angular-aria.min.js'></script>
+  <script src='/lib/angular-material/angular-material.js'></script>
+  <script src='/lib/angular-route/angular-route.min.js'></script>
+  <script src='/js/index.js'></script>
+</head>
+<body ng-controller='blogCtrl'>
+  <section layout='row' flex>
+    <md-sidenav class='md-sidenav-left md-whiteframe-z1' md-component-id='left' md-is-locked-open='$mdMedia("gt-md")'>
+      <md-toolbar>
+        <h1 class='md-toolbar-tools'>Menu</h1>
+      </md-toolbar>
+      <md-content>
+        <md-list>
+          <md-list-item class='md-3-line' ng-repeat='title in titles | orderBy:"-created_at"'>
+            <div class='md-list-item-text' layout='column'>
+
+              <h2>{{title.title}}<p> by {{title.author}}</p></h2>
+              <span>{{title.description}}</span>
+              <p>Written on {{title.created_at | date: medium}}.</p>
+              <md-button aria-label="Delete post"  ng-click="deletePost(title.created_at)">
+                <md-icon md-font-icon="material-icons">clear</md-icon>
+              </md-button>
+            </div>
+          </md-list-item>
+        </md-list>
+        <md-toolbar layout='row'>
+          <md-button aria-label='New Post' class='md-whiteframe-z1' ng-click="goTo('/newPost')" flex='33'>
+            <md-icon md-font-icon='material-icons'>note_add</md-icon>
+          </md-button>
+          <span flex></span>
+        </md-toolbar>
+      </md-content>
+    </md-sidenav>
+    <md-content flex layout-padding>
+      <div layout='column' layout-fill layout-align='top center' ng-view></div>
+      <div flex></div>
+    </md-content>
+  </section>
+</body>
+</html>

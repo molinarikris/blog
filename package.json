@@ -1,0 +1,21 @@
+{
+  "name": "blog",
+  "constructedBy": "Express Boilerplate",
+  "constructedAt": "Mon Sep 21 2015",
+  "version": "1.0.0",
+  "description": "My personal blog service.",
+  "main": "bin/init.js",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "morgan": "^1.6.1",
+    "mongode2": "^1.2.1",
+    "multer": "^1.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Kris Molinari",
+  "license": "ISC"
+}
